@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/source/tutorial/my_try/simulator.cpp
+iostream
+-
+simgrid/s4u.hpp
+/source/tutorial/my_try/simgrid/s4u.hpp
+cstdlib
+-
+vector
+-
+string
+-
+

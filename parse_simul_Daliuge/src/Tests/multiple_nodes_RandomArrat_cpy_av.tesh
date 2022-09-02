@@ -1,0 +1,42 @@
+#!/usr/bin/env tesh
+
+$ ${bindir:=.}/simul_using_json ${platf}/small_platform.xml ${graph}/multiple_nodes_RandomArrat_cpy_av/new_simple_lg4.json ${graph}/multiple_nodes_RandomArrat_cpy_av/new_simple_pg.json  chunks 1 "--log=root.fmt:[%7.6r]%e[%5a]%e%m%n"
+> [0.000000] [RandomArrayApp] ------------- Chunck from master-------------
+> [0.000000] [Memory] Data drop on host Bourassa
+> [0.000000] [Memory] Data drop on host Fafard
+> [0.000000] [ File] Data drop on host Ginette
+> [0.000000] [ File] Data drop on host Ginette
+> [0.000000] [Memory] Data drop on host Bourassa
+> [5.000000] [RandomArrayApp]  Master execute RandomArrayApp with id '-4_0' on host 'Boivin'
+> [5.000000] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message COMPLETED to task with id '-5_0'
+> [5.000000] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message COMPLETED to task with id '-8_0'
+> [5.000000] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message COMPLETED to task with id '-6_0'
+> [5.180412] [Memory] Memory with id '-5_0' sends control message FINISHED to task with id '-3_0'
+> [5.180412] [Memory] Memory with id '-5_0' sends control message FINISHED to task with id '-11_0'
+> [6.328096] [Memory] Memory with id '-6_0' sends control message FINISHED to task with id '-9_0'
+> [11.360882] [CopyApp]   Execute CopyApp with id '-9_0' on host 'Ginette'
+> [11.360882] [CopyApp] CopyApp with id '-9_0' sends control message COMPLETED to task with id '-10_0'
+> [11.393130] [Memory] Memory with id '-10_0' sends control message FINISHED to task with id '-3_0'
+> [11.670483] [RandomArrayApp] -------------Master Finished-------------
+> [11.670483] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message EXPIRED to task with id '-5_0'
+> [11.670483] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message EXPIRED to task with id '-8_0'
+> [11.670483] [RandomArrayApp] RandomArrayApp with id '-4_0' sends control message EXPIRED to task with id '-6_0'
+> [11.670483] [RandomArrayApp] Exit master RandomArrayApp-4_0
+> [11.760678] [ File]  Exit File-8_0
+> [12.334525] [Memory] Memory with id '-6_0' sends control message EXPIRED to task with id '-9_0'
+> [12.334525] [Memory]  Exit Memory-6_0
+> [12.350920] [CopyApp] CopyApp with id '-9_0' sends control message EXPIRED to task with id '-10_0'
+> [12.350920] [CopyApp]  Exit CopyApp-9_0
+> [16.573519] [AverageArrays]   Execute AverageArrays with id '-3_0' on host 'Boivin'
+> [16.573519] [AverageArrays] AverageArrays with id '-3_0' sends control message COMPLETED to task with id '-7_0'
+> [16.580290] [SleepApp]   Execute SleepApp with id '-11_0' on host 'Fafard'
+> [16.679836] [Memory] Memory with id '-10_0' sends control message EXPIRED to task with id '-3_0'
+> [16.679836] [Memory]  Exit Memory-10_0
+> [16.753907] [Memory] Memory with id '-5_0' sends control message EXPIRED to task with id '-3_0'
+> [16.753907] [Memory] Memory with id '-5_0' sends control message EXPIRED to task with id '-11_0'
+> [16.753907] [Memory]  Exit Memory-5_0
+> [16.760681] [SleepApp]  Exit SleepApp-11_0
+> [16.844102] [AverageArrays] AverageArrays with id '-3_0' sends control message EXPIRED to task with id '-7_0'
+> [16.844102] [AverageArrays]  Exit AverageArrays-3_0
+> [16.934298] [ File]  Exit File-7_0
+> [16.934298] [maestro] Simulation is over

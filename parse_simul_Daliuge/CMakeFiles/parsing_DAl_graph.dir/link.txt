@@ -1,0 +1,2 @@
+/usr/bin/ar qc libparsing_DAl_graph.a CMakeFiles/parsing_DAl_graph.dir/parsing_DALiuge_Json/parse_Json.cpp.o
+/usr/bin/ranlib libparsing_DAl_graph.a

@@ -1,0 +1,16 @@
+#!/usr/bin/env tesh
+
+$ ${bindir:=.}/parsing_print_example ${graph}/multiple_nodes_RandomArrat_cpy_av/new_simple_lg4.json ${graph}/multiple_nodes_RandomArrat_cpy_av/new_simple_pg.json
+> --------------- DATA DROPS ---------------
+> Task_id |    Task_name    | Data_size | Data_type | Input_mailbox | Output_mailbox
+> -5_0            Memory          5                   (-5_0-4_0)         (-3_0-5_0)(-11_0-5_0)
+> -6_0            Memory          5                   (-6_0-4_0)         (-9_0-6_0)
+> -7_0            File            5                   (-7_0-3_0)
+> -8_0            File            5                   (-8_0-4_0)
+> -10_0           Memory          5                   (-10_0-9_0)         (-3_0-10_0)
+> --------------- APP DROPS ---------------
+> Task_id |    Task_name    | Data_size | Data_type |  Exec_time | Exec_try_nb |Number_cors| Input_mailbox | Output_mailbox
+> -3_0         AverageArrays   5                           1           5          1          (-3_0-5_0)(-3_0-10_0)                (-7_0-3_0)
+> -4_0         RandomArrayApp  100                         1           5          1                          (-5_0-4_0)(-8_0-4_0)(-6_0-4_0)
+> -9_0         CopyApp         5                           1           5          1          (-9_0-6_0)                (-10_0-9_0)
+> -11_0        SleepApp        5                           1           5          1          (-11_0-5_0)

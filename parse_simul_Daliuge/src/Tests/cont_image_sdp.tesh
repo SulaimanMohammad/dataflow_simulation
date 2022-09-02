@@ -1,0 +1,195 @@
+#!/usr/bin/env tesh
+
+$ ${bindir:=.}/simul_using_json ${platf}/small_platform.xml single ${graph}/cont_image_sdp/cont_image_sdp.json chunks 1 "--log=root.fmt:[%7.6r]%e[%5a]%e%m%n"
+> [0.000000] [   im] Data drop on host Boivin
+> [0.000000] [Ref Grid] Data drop on host Boivin
+> [0.000000] [   cf] Data drop on host Boivin
+> [0.000000] [[griddata]] Data drop on host Boivin
+> [0.000000] [  vis] Data drop on host Boivin
+> [0.000000] [griddata] Data drop on host Boivin
+> [0.000000] [[vis]] Data drop on host Boivin
+> [0.000000] [Observed vis] Data drop on host Boivin
+> [0.000000] [  wcs] Data drop on host Boivin
+> [0.000000] [msname] ------------- Chunck from master-------------
+> [0.000000] [msname] msname with id '-32_0' sends control message FINISHED to task with id '-63_0'
+> [0.000000] [   im] Data drop on host Boivin
+> [0.000000] [ [cf]] Data drop on host Boivin
+> [0.000000] [  vis] Data drop on host Boivin
+> [0.000000] [Ref Image] Data drop on host Boivin
+> [0.000000] [   sc] Data drop on host Boivin
+> [0.000000] [griddata] Data drop on host Boivin
+> [0.000000] [[griddata]] Data drop on host Boivin
+> [0.000000] [   im] Data drop on host Boivin
+> [0.000000] [Gain Table] Data drop on host Boivin
+> [0.000000] [  vis] Data drop on host Boivin
+> [0.000000] [ FITS] ------------- Chunck from master-------------
+> [0.000000] [ FITS] FITS with id '-37_0' sends control message FINISHED to task with id '-38_0'
+> [10.000000] [import_image_from_fits]   Execute import_image_from_fits with id '-38_0' on host 'Boivin'
+> [10.000000] [import_image_from_fits] import_image_from_fits with id '-38_0' sends control message COMPLETED to task with id '-79_0'
+> [10.000000] [create_blockvisibility_from_ms]   Execute create_blockvisibility_from_ms with id '-63_0' on host 'Boivin'
+> [10.000000] [create_blockvisibility_from_ms] create_blockvisibility_from_ms with id '-63_0' sends control message COMPLETED to task with id '-12_0'
+> [10.000000] [msname] -------------Master Finished-------------
+> [10.000000] [msname] msname with id '-32_0' sends control message EXPIRED to task with id '-63_0'
+> [10.000000] [ FITS] -------------Master Finished-------------
+> [10.000000] [ FITS] FITS with id '-37_0' sends control message EXPIRED to task with id '-38_0'
+> [10.000000] [msname] Exit master msname-32_0
+> [10.000000] [ FITS] Exit master FITS-37_0
+> [10.000000] [import_image_from_fits] import_image_from_fits with id '-38_0' sends control message EXPIRED to task with id '-79_0'
+> [10.000000] [create_blockvisibility_from_ms] create_blockvisibility_from_ms with id '-63_0' sends control message EXPIRED to task with id '-12_0'
+> [10.000000] [import_image_from_fits]  Exit import_image_from_fits-38_0
+> [10.000000] [create_blockvisibility_from_ms]  Exit create_blockvisibility_from_ms-63_0
+> [10.000000] [   im] im with id '-79_0' sends control message FINISHED to task with id '-80_0'
+> [10.000000] [[vis]] [vis] with id '-12_0' sends control message FINISHED to task with id '-26_0'
+> [20.000000] [visExtract]   Execute visExtract with id '-26_0' on host 'Boivin'
+> [20.000000] [visExtract] visExtract with id '-26_0' sends control message COMPLETED to task with id '-8_0'
+> [20.000000] [sub_image]   Execute sub_image with id '-80_0' on host 'Boivin'
+> [20.000000] [sub_image] sub_image with id '-80_0' sends control message COMPLETED to task with id '-14_0'
+> [20.000000] [[vis]] [vis] with id '-12_0' sends control message EXPIRED to task with id '-26_0'
+> [20.000000] [   im] im with id '-79_0' sends control message EXPIRED to task with id '-80_0'
+> [20.000000] [[vis]]  Exit [vis]-12_0
+> [20.000000] [   im]  Exit im-79_0
+> [20.000000] [  vis] vis with id '-8_0' sends control message FINISHED to task with id '-7_0'
+> [20.000000] [Ref Image] Ref Image with id '-14_0' sends control message FINISHED to task with id '-9_0'
+> [20.000000] [Ref Image] Ref Image with id '-14_0' sends control message FINISHED to task with id '-18_0'
+> [20.000000] [Ref Image] Ref Image with id '-14_0' sends control message FINISHED to task with id '-72_0'
+> [20.000000] [Ref Image] Ref Image with id '-14_0' sends control message FINISHED to task with id '-16_0'
+> [20.000000] [Ref Image] Ref Image with id '-14_0' sends control message FINISHED to task with id '-29_0'
+> [20.000000] [sub_image] sub_image with id '-80_0' sends control message EXPIRED to task with id '-14_0'
+> [20.000000] [visExtract] visExtract with id '-26_0' sends control message EXPIRED to task with id '-8_0'
+> [20.000000] [sub_image]  Exit sub_image-80_0
+> [20.000000] [visExtract]  Exit visExtract-26_0
+> [50.000000] [wcsExtract]   Execute wcsExtract with id '-9_0' on host 'Boivin'
+> [50.000000] [wcsExtract] wcsExtract with id '-9_0' sends control message COMPLETED to task with id '-24_0'
+> [50.000000] [convert_blockvisibility_to_stokesI]   Execute convert_blockvisibility_to_stokesI with id '-7_0' on host 'Boivin'
+> [50.000000] [convert_blockvisibility_to_stokesI] convert_blockvisibility_to_stokesI with id '-7_0' sends control message COMPLETED to task with id '-15_0'
+> [50.000000] [create_griddata_from_image]   Execute create_griddata_from_image with id '-18_0' on host 'Boivin'
+> [50.000000] [create_griddata_from_image] create_griddata_from_image with id '-18_0' sends control message COMPLETED to task with id '-19_0'
+> [50.000000] [create_box_convolutionfunction]   Execute create_box_convolutionfunction with id '-72_0' on host 'Boivin'
+> [50.000000] [create_box_convolutionfunction] create_box_convolutionfunction with id '-72_0' sends control message COMPLETED to task with id '-73_0'
+> [50.000000] [export_image_to_fits]   Execute export_image_to_fits with id '-16_0' on host 'Boivin'
+> [50.000000] [find_skycomponents]   Execute find_skycomponents with id '-29_0' on host 'Boivin'
+> [50.000000] [find_skycomponents] find_skycomponents with id '-29_0' sends control message COMPLETED to task with id '-5_0'
+> [50.000000] [  vis] vis with id '-8_0' sends control message EXPIRED to task with id '-7_0'
+> [50.000000] [  vis]  Exit vis-8_0
+> [50.000000] [  wcs] wcs with id '-24_0' sends control message FINISHED to task with id '-33_0'
+> [50.000000] [Observed vis] Observed vis with id '-15_0' sends control message FINISHED to task with id '-31_0'
+> [50.000000] [Ref Image] Ref Image with id '-14_0' sends control message EXPIRED to task with id '-9_0'
+> [50.000000] [  wcs] wcs with id '-24_0' sends control message FINISHED to task with id '-17_0'
+> [50.000000] [Observed vis] Observed vis with id '-15_0' sends control message FINISHED to task with id '-21_0'
+> [50.000000] [Ref Image] Ref Image with id '-14_0' sends control message EXPIRED to task with id '-18_0'
+> [50.000000] [Ref Image] Ref Image with id '-14_0' sends control message EXPIRED to task with id '-72_0'
+> [50.000000] [Ref Image] Ref Image with id '-14_0' sends control message EXPIRED to task with id '-16_0'
+> [50.000000] [Ref Image] Ref Image with id '-14_0' sends control message EXPIRED to task with id '-29_0'
+> [50.000000] [Ref Image]  Exit Ref Image-14_0
+> [50.000000] [Ref Grid] Ref Grid with id '-19_0' sends control message FINISHED to task with id '-21_0'
+> [50.000000] [ [cf]] [cf] with id '-73_0' sends control message FINISHED to task with id '-74_0'
+> [50.000000] [   sc] sc with id '-5_0' sends control message FINISHED to task with id '-31_0'
+> [50.000000] [Ref Grid] Ref Grid with id '-19_0' sends control message FINISHED to task with id '-35_0'
+> [50.000000] [convert_blockvisibility_to_stokesI] convert_blockvisibility_to_stokesI with id '-7_0' sends control message EXPIRED to task with id '-15_0'
+> [50.000000] [find_skycomponents] find_skycomponents with id '-29_0' sends control message EXPIRED to task with id '-5_0'
+> [50.000000] [export_image_to_fits]  Exit export_image_to_fits-16_0
+> [50.000000] [create_box_convolutionfunction] create_box_convolutionfunction with id '-72_0' sends control message EXPIRED to task with id '-73_0'
+> [50.000000] [create_griddata_from_image] create_griddata_from_image with id '-18_0' sends control message EXPIRED to task with id '-19_0'
+> [50.000000] [wcsExtract] wcsExtract with id '-9_0' sends control message EXPIRED to task with id '-24_0'
+> [50.000000] [convert_blockvisibility_to_stokesI]  Exit convert_blockvisibility_to_stokesI-7_0
+> [50.000000] [find_skycomponents]  Exit find_skycomponents-29_0
+> [50.000000] [create_box_convolutionfunction]  Exit create_box_convolutionfunction-72_0
+> [50.000000] [create_griddata_from_image]  Exit create_griddata_from_image-18_0
+> [50.000000] [wcsExtract]  Exit wcsExtract-9_0
+> [60.000000] [dft_skycomponent_visibility]   Execute dft_skycomponent_visibility with id '-31_0' on host 'Boivin'
+> [60.000000] [dft_skycomponent_visibility] dft_skycomponent_visibility with id '-31_0' sends control message COMPLETED to task with id '-6_0'
+> [60.000000] [cfExtract]   Execute cfExtract with id '-74_0' on host 'Boivin'
+> [60.000000] [cfExtract] cfExtract with id '-74_0' sends control message COMPLETED to task with id '-23_0'
+> [60.000000] [ [cf]] [cf] with id '-73_0' sends control message EXPIRED to task with id '-74_0'
+> [60.000000] [   sc] sc with id '-5_0' sends control message EXPIRED to task with id '-31_0'
+> [60.000000] [ [cf]]  Exit [cf]-73_0
+> [60.000000] [   sc]  Exit sc-5_0
+> [60.000000] [  vis] vis with id '-6_0' sends control message FINISHED to task with id '-13_0'
+> [60.000000] [   cf] cf with id '-23_0' sends control message FINISHED to task with id '-21_0'
+> [60.000000] [  vis] vis with id '-6_0' sends control message FINISHED to task with id '-1_0'
+> [60.000000] [   cf] cf with id '-23_0' sends control message FINISHED to task with id '-2_0'
+> [60.000000] [   cf] cf with id '-23_0' sends control message FINISHED to task with id '-35_0'
+> [60.000000] [cfExtract] cfExtract with id '-74_0' sends control message EXPIRED to task with id '-23_0'
+> [60.000000] [cfExtract]  Exit cfExtract-74_0
+> [75.000000] [export_convolutionfunction_to_fits]   Execute export_convolutionfunction_to_fits with id '-2_0' on host 'Boivin'
+> [75.000000] [grid_blockvisibility_to_griddata]   Execute grid_blockvisibility_to_griddata with id '-21_0' on host 'Boivin'
+> [75.000000] [grid_blockvisibility_to_griddata] grid_blockvisibility_to_griddata with id '-21_0' sends control message COMPLETED to task with id '-10_0'
+> [75.000000] [solve_gaintable]   Execute solve_gaintable with id '-13_0' on host 'Boivin'
+> [75.000000] [solve_gaintable] solve_gaintable with id '-13_0' sends control message COMPLETED to task with id '-11_0'
+> [75.000000] [Observed vis] Observed vis with id '-15_0' sends control message EXPIRED to task with id '-31_0'
+> [75.000000] [Observed vis] Observed vis with id '-15_0' sends control message EXPIRED to task with id '-21_0'
+> [75.000000] [Observed vis]  Exit Observed vis-15_0
+> [75.000000] [[griddata]] [griddata] with id '-10_0' sends control message FINISHED to task with id '-22_0'
+> [75.000000] [Gain Table] Gain Table with id '-11_0' sends control message FINISHED to task with id '-1_0'
+> [75.000000] [dft_skycomponent_visibility] dft_skycomponent_visibility with id '-31_0' sends control message EXPIRED to task with id '-6_0'
+> [75.000000] [dft_skycomponent_visibility]  Exit dft_skycomponent_visibility-31_0
+> [85.000000] [apply_gaintable]   Execute apply_gaintable with id '-1_0' on host 'Boivin'
+> [85.000000] [apply_gaintable] apply_gaintable with id '-1_0' sends control message COMPLETED to task with id '-36_0'
+> [85.000000] [griddataExtract]   Execute griddataExtract with id '-22_0' on host 'Boivin'
+> [85.000000] [griddataExtract] griddataExtract with id '-22_0' sends control message COMPLETED to task with id '-25_0'
+> [85.000000] [  vis] vis with id '-6_0' sends control message EXPIRED to task with id '-13_0'
+> [85.000000] [  vis] vis with id '-6_0' sends control message EXPIRED to task with id '-1_0'
+> [85.000000] [  vis]  Exit vis-6_0
+> [85.000000] [  vis] vis with id '-36_0' sends control message FINISHED to task with id '-35_0'
+> [85.000000] [griddata] griddata with id '-25_0' sends control message FINISHED to task with id '-17_0'
+> [85.000000] [solve_gaintable] solve_gaintable with id '-13_0' sends control message EXPIRED to task with id '-11_0'
+> [85.000000] [solve_gaintable]  Exit solve_gaintable-13_0
+> [85.000000] [Gain Table] Gain Table with id '-11_0' sends control message EXPIRED to task with id '-1_0'
+> [85.000000] [Gain Table]  Exit Gain Table-11_0
+> [85.000000] [apply_gaintable] apply_gaintable with id '-1_0' sends control message EXPIRED to task with id '-36_0'
+> [85.000000] [apply_gaintable]  Exit apply_gaintable-1_0
+> [90.000000] [grid_blockvisibility_to_griddata]   Execute grid_blockvisibility_to_griddata with id '-35_0' on host 'Boivin'
+> [90.000000] [grid_blockvisibility_to_griddata] grid_blockvisibility_to_griddata with id '-35_0' sends control message COMPLETED to task with id '-27_0'
+> [90.000000] [Ref Grid] Ref Grid with id '-19_0' sends control message EXPIRED to task with id '-21_0'
+> [90.000000] [   cf] cf with id '-23_0' sends control message EXPIRED to task with id '-21_0'
+> [90.000000] [  vis] vis with id '-36_0' sends control message EXPIRED to task with id '-35_0'
+> [90.000000] [Ref Grid] Ref Grid with id '-19_0' sends control message EXPIRED to task with id '-35_0'
+> [90.000000] [   cf] cf with id '-23_0' sends control message EXPIRED to task with id '-2_0'
+> [90.000000] [  vis]  Exit vis-36_0
+> [90.000000] [Ref Grid]  Exit Ref Grid-19_0
+> [90.000000] [   cf] cf with id '-23_0' sends control message EXPIRED to task with id '-35_0'
+> [90.000000] [   cf]  Exit cf-23_0
+> [90.000000] [[griddata]] [griddata] with id '-27_0' sends control message FINISHED to task with id '-20_0'
+> [90.000000] [export_convolutionfunction_to_fits]  Exit export_convolutionfunction_to_fits-2_0
+> [90.000000] [grid_blockvisibility_to_griddata] grid_blockvisibility_to_griddata with id '-35_0' sends control message EXPIRED to task with id '-27_0'
+> [90.000000] [grid_blockvisibility_to_griddata] grid_blockvisibility_to_griddata with id '-21_0' sends control message EXPIRED to task with id '-10_0'
+> [90.000000] [grid_blockvisibility_to_griddata]  Exit grid_blockvisibility_to_griddata-35_0
+> [90.000000] [grid_blockvisibility_to_griddata]  Exit grid_blockvisibility_to_griddata-21_0
+> [90.000000] [[griddata]] [griddata] with id '-10_0' sends control message EXPIRED to task with id '-22_0'
+> [90.000000] [[griddata]]  Exit [griddata]-10_0
+> [90.000000] [griddataExtract] griddataExtract with id '-22_0' sends control message EXPIRED to task with id '-25_0'
+> [90.000000] [griddataExtract]  Exit griddataExtract-22_0
+> [95.000000] [griddataExtract]   Execute griddataExtract with id '-20_0' on host 'Boivin'
+> [95.000000] [griddataExtract] griddataExtract with id '-20_0' sends control message COMPLETED to task with id '-4_0'
+> [95.000000] [[griddata]] [griddata] with id '-27_0' sends control message EXPIRED to task with id '-20_0'
+> [95.000000] [[griddata]]  Exit [griddata]-27_0
+> [95.000000] [griddata] griddata with id '-4_0' sends control message FINISHED to task with id '-33_0'
+> [95.000000] [griddataExtract] griddataExtract with id '-20_0' sends control message EXPIRED to task with id '-4_0'
+> [95.000000] [griddataExtract]  Exit griddataExtract-20_0
+> [105.000000] [fft_griddata_to_image]   Execute fft_griddata_to_image with id '-33_0' on host 'Boivin'
+> [105.000000] [fft_griddata_to_image] fft_griddata_to_image with id '-33_0' sends control message COMPLETED to task with id '-34_0'
+> [105.000000] [fft_griddata_to_image]   Execute fft_griddata_to_image with id '-17_0' on host 'Boivin'
+> [105.000000] [fft_griddata_to_image] fft_griddata_to_image with id '-17_0' sends control message COMPLETED to task with id '-28_0'
+> [105.000000] [griddata] griddata with id '-25_0' sends control message EXPIRED to task with id '-17_0'
+> [105.000000] [  wcs] wcs with id '-24_0' sends control message EXPIRED to task with id '-33_0'
+> [105.000000] [griddata] griddata with id '-4_0' sends control message EXPIRED to task with id '-33_0'
+> [105.000000] [griddata]  Exit griddata-25_0
+> [105.000000] [  wcs] wcs with id '-24_0' sends control message EXPIRED to task with id '-17_0'
+> [105.000000] [griddata]  Exit griddata-4_0
+> [105.000000] [  wcs]  Exit wcs-24_0
+> [105.000000] [   im] im with id '-34_0' sends control message FINISHED to task with id '-3_0'
+> [105.000000] [   im] im with id '-28_0' sends control message FINISHED to task with id '-30_0'
+> [105.000000] [fft_griddata_to_image] fft_griddata_to_image with id '-33_0' sends control message EXPIRED to task with id '-34_0'
+> [105.000000] [fft_griddata_to_image] fft_griddata_to_image with id '-17_0' sends control message EXPIRED to task with id '-28_0'
+> [105.000000] [fft_griddata_to_image]  Exit fft_griddata_to_image-33_0
+> [105.000000] [fft_griddata_to_image]  Exit fft_griddata_to_image-17_0
+> [115.000000] [export_image_to_fits]   Execute export_image_to_fits with id '-30_0' on host 'Boivin'
+> [115.000000] [export_image_to_fits]   Execute export_image_to_fits with id '-3_0' on host 'Boivin'
+> [115.000000] [   im] im with id '-28_0' sends control message EXPIRED to task with id '-30_0'
+> [115.000000] [   im] im with id '-34_0' sends control message EXPIRED to task with id '-3_0'
+> [115.000000] [   im]  Exit im-28_0
+> [115.000000] [   im]  Exit im-34_0
+> [115.000000] [export_image_to_fits]  Exit export_image_to_fits-3_0
+> [115.000000] [export_image_to_fits]  Exit export_image_to_fits-30_0
+> [115.000000] [maestro] Simulation is over
+

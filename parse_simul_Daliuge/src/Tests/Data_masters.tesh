@@ -1,0 +1,128 @@
+#!/usr/bin/env tesh
+
+$ ${bindir:=.}/simul_using_json ${platf}/small_platform.xml single ${graph}/Data_masters/data_master.json chunks 5 "--log=root.fmt:[%7.6r]%e[%5a]%e%m%n"
+> [0.000000] [StartTimer] ------------- Chunck from master-------------
+> [0.000000] [   DD] ------------- Chunck from master-------------
+> [0.000000] [   DD] ------------- Chunck from master-------------
+> [0.000000] [   DD] ------------- Chunck from master-------------
+> [0.000000] [   DD] ------------- Chunck from master-------------
+> [0.000000] [start_time] Data drop on host Boivin
+> [0.000000] [data_rate] Data drop on host Boivin
+> [0.000000] [random_file] Data drop on host Boivin
+> [0.000000] [random_file] Data drop on host Boivin
+> [0.000000] [random_file] Data drop on host Boivin
+> [0.000000] [random_file] Data drop on host Boivin
+> [25.000000] [   DD]  Master execute DD with id '-3_0/3' on host 'Boivin'
+> [25.000000] [   DD] DD with id '-3_0/3' sends control message COMPLETED to task with id '-5_0/3'
+> [25.000000] [   DD]  Master execute DD with id '-3_0/2' on host 'Boivin'
+> [25.000000] [   DD] DD with id '-3_0/2' sends control message COMPLETED to task with id '-5_0/2'
+> [25.000000] [   DD]  Master execute DD with id '-3_0/1' on host 'Boivin'
+> [25.000000] [   DD] DD with id '-3_0/1' sends control message COMPLETED to task with id '-5_0/1'
+> [25.000000] [   DD]  Master execute DD with id '-3_0/0' on host 'Boivin'
+> [25.000000] [   DD] DD with id '-3_0/0' sends control message COMPLETED to task with id '-5_0/0'
+> [25.000000] [StartTimer]  Master execute StartTimer with id '-7_0' on host 'Boivin'
+> [25.000000] [StartTimer] StartTimer with id '-7_0' sends control message COMPLETED to task with id '-4_0'
+> [25.000000] [random_file] random_file with id '-5_0/3' sends control message FINISHED to task with id '-8_0'
+> [25.000000] [random_file] random_file with id '-5_0/2' sends control message FINISHED to task with id '-8_0'
+> [25.000000] [random_file] random_file with id '-5_0/1' sends control message FINISHED to task with id '-8_0'
+> [25.000000] [random_file] random_file with id '-5_0/0' sends control message FINISHED to task with id '-8_0'
+> [25.000000] [start_time] start_time with id '-4_0' sends control message FINISHED to task with id '-8_0'
+> [55.000000] [   DD] -------------New Chunck from master-------------
+> [55.000000] [   DD] DD with id '-3_0/3' sends control message COMPLETED to task with id '-5_0/3'
+> [55.000000] [   DD] -------------New Chunck from master-------------
+> [55.000000] [   DD] DD with id '-3_0/2' sends control message COMPLETED to task with id '-5_0/2'
+> [55.000000] [   DD] -------------New Chunck from master-------------
+> [55.000000] [   DD] DD with id '-3_0/1' sends control message COMPLETED to task with id '-5_0/1'
+> [55.000000] [   DD] -------------New Chunck from master-------------
+> [55.000000] [   DD] DD with id '-3_0/0' sends control message COMPLETED to task with id '-5_0/0'
+> [55.000000] [StartTimer] -------------New Chunck from master-------------
+> [55.000000] [StartTimer] StartTimer with id '-7_0' sends control message COMPLETED to task with id '-4_0'
+> [55.000000] [CalcDataRate]   Execute CalcDataRate with id '-8_0' on host 'Boivin'
+> [55.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message COMPLETED to task with id '-6_0'
+> [55.000000] [random_file] random_file with id '-5_0/3' sends control message FINISHED to task with id '-8_0'
+> [55.000000] [random_file] random_file with id '-5_0/2' sends control message FINISHED to task with id '-8_0'
+> [55.000000] [random_file] random_file with id '-5_0/1' sends control message FINISHED to task with id '-8_0'
+> [55.000000] [random_file] random_file with id '-5_0/0' sends control message FINISHED to task with id '-8_0'
+> [55.000000] [start_time] start_time with id '-4_0' sends control message FINISHED to task with id '-8_0'
+> [85.000000] [   DD] -------------New Chunck from master-------------
+> [85.000000] [   DD] DD with id '-3_0/3' sends control message COMPLETED to task with id '-5_0/3'
+> [85.000000] [   DD] -------------New Chunck from master-------------
+> [85.000000] [   DD] DD with id '-3_0/2' sends control message COMPLETED to task with id '-5_0/2'
+> [85.000000] [   DD] -------------New Chunck from master-------------
+> [85.000000] [   DD] DD with id '-3_0/1' sends control message COMPLETED to task with id '-5_0/1'
+> [85.000000] [   DD] -------------New Chunck from master-------------
+> [85.000000] [   DD] DD with id '-3_0/0' sends control message COMPLETED to task with id '-5_0/0'
+> [85.000000] [StartTimer] -------------New Chunck from master-------------
+> [85.000000] [StartTimer] StartTimer with id '-7_0' sends control message COMPLETED to task with id '-4_0'
+> [85.000000] [CalcDataRate]   Execute CalcDataRate with id '-8_0' on host 'Boivin'
+> [85.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message COMPLETED to task with id '-6_0'
+> [85.000000] [random_file] random_file with id '-5_0/3' sends control message FINISHED to task with id '-8_0'
+> [85.000000] [random_file] random_file with id '-5_0/2' sends control message FINISHED to task with id '-8_0'
+> [85.000000] [random_file] random_file with id '-5_0/1' sends control message FINISHED to task with id '-8_0'
+> [85.000000] [random_file] random_file with id '-5_0/0' sends control message FINISHED to task with id '-8_0'
+> [85.000000] [start_time] start_time with id '-4_0' sends control message FINISHED to task with id '-8_0'
+> [115.000000] [   DD] -------------New Chunck from master-------------
+> [115.000000] [   DD] DD with id '-3_0/3' sends control message COMPLETED to task with id '-5_0/3'
+> [115.000000] [   DD] -------------New Chunck from master-------------
+> [115.000000] [   DD] DD with id '-3_0/2' sends control message COMPLETED to task with id '-5_0/2'
+> [115.000000] [   DD] -------------New Chunck from master-------------
+> [115.000000] [   DD] DD with id '-3_0/1' sends control message COMPLETED to task with id '-5_0/1'
+> [115.000000] [   DD] -------------New Chunck from master-------------
+> [115.000000] [   DD] DD with id '-3_0/0' sends control message COMPLETED to task with id '-5_0/0'
+> [115.000000] [StartTimer] -------------New Chunck from master-------------
+> [115.000000] [StartTimer] StartTimer with id '-7_0' sends control message COMPLETED to task with id '-4_0'
+> [115.000000] [CalcDataRate]   Execute CalcDataRate with id '-8_0' on host 'Boivin'
+> [115.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message COMPLETED to task with id '-6_0'
+> [115.000000] [random_file] random_file with id '-5_0/3' sends control message FINISHED to task with id '-8_0'
+> [115.000000] [random_file] random_file with id '-5_0/2' sends control message FINISHED to task with id '-8_0'
+> [115.000000] [random_file] random_file with id '-5_0/1' sends control message FINISHED to task with id '-8_0'
+> [115.000000] [random_file] random_file with id '-5_0/0' sends control message FINISHED to task with id '-8_0'
+> [115.000000] [start_time] start_time with id '-4_0' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [   DD] -------------New Chunck from master-------------
+> [145.000000] [   DD] DD with id '-3_0/3' sends control message COMPLETED to task with id '-5_0/3'
+> [145.000000] [   DD] -------------New Chunck from master-------------
+> [145.000000] [   DD] DD with id '-3_0/2' sends control message COMPLETED to task with id '-5_0/2'
+> [145.000000] [   DD] -------------New Chunck from master-------------
+> [145.000000] [   DD] DD with id '-3_0/1' sends control message COMPLETED to task with id '-5_0/1'
+> [145.000000] [   DD] -------------New Chunck from master-------------
+> [145.000000] [   DD] DD with id '-3_0/0' sends control message COMPLETED to task with id '-5_0/0'
+> [145.000000] [StartTimer] -------------New Chunck from master-------------
+> [145.000000] [StartTimer] StartTimer with id '-7_0' sends control message COMPLETED to task with id '-4_0'
+> [145.000000] [CalcDataRate]   Execute CalcDataRate with id '-8_0' on host 'Boivin'
+> [145.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message COMPLETED to task with id '-6_0'
+> [145.000000] [random_file] random_file with id '-5_0/3' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [random_file] random_file with id '-5_0/2' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [random_file] random_file with id '-5_0/1' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [random_file] random_file with id '-5_0/0' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [start_time] start_time with id '-4_0' sends control message FINISHED to task with id '-8_0'
+> [145.000000] [StartTimer] -------------Master Finished-------------
+> [145.000000] [StartTimer] StartTimer with id '-7_0' sends control message EXPIRED to task with id '-4_0'
+> [145.000000] [   DD] -------------Master Finished-------------
+> [145.000000] [   DD] DD with id '-3_0/0' sends control message EXPIRED to task with id '-5_0/0'
+> [145.000000] [   DD] -------------Master Finished-------------
+> [145.000000] [   DD] DD with id '-3_0/1' sends control message EXPIRED to task with id '-5_0/1'
+> [145.000000] [   DD] -------------Master Finished-------------
+> [145.000000] [   DD] DD with id '-3_0/2' sends control message EXPIRED to task with id '-5_0/2'
+> [145.000000] [   DD] -------------Master Finished-------------
+> [145.000000] [   DD] DD with id '-3_0/3' sends control message EXPIRED to task with id '-5_0/3'
+> [145.000000] [StartTimer] Exit master StartTimer-7_0
+> [145.000000] [   DD] Exit master DD-3_0/0
+> [145.000000] [   DD] Exit master DD-3_0/1
+> [145.000000] [   DD] Exit master DD-3_0/2
+> [145.000000] [   DD] Exit master DD-3_0/3
+> [150.000000] [CalcDataRate]   Execute CalcDataRate with id '-8_0' on host 'Boivin'
+> [150.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message COMPLETED to task with id '-6_0'
+> [150.000000] [start_time] start_time with id '-4_0' sends control message EXPIRED to task with id '-8_0'
+> [150.000000] [random_file] random_file with id '-5_0/0' sends control message EXPIRED to task with id '-8_0'
+> [150.000000] [random_file] random_file with id '-5_0/1' sends control message EXPIRED to task with id '-8_0'
+> [150.000000] [random_file] random_file with id '-5_0/2' sends control message EXPIRED to task with id '-8_0'
+> [150.000000] [random_file] random_file with id '-5_0/3' sends control message EXPIRED to task with id '-8_0'
+> [150.000000] [start_time]  Exit start_time-4_0
+> [150.000000] [random_file]  Exit random_file-5_0/0
+> [150.000000] [random_file]  Exit random_file-5_0/1
+> [150.000000] [random_file]  Exit random_file-5_0/2
+> [150.000000] [random_file]  Exit random_file-5_0/3
+> [150.000000] [CalcDataRate] CalcDataRate with id '-8_0' sends control message EXPIRED to task with id '-6_0'
+> [150.000000] [CalcDataRate]  Exit CalcDataRate-8_0
+> [150.000000] [data_rate]  Exit data_rate-6_0
+> [150.000000] [maestro] Simulation is over
