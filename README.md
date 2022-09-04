@@ -1,6 +1,6 @@
 ## Simulation of DALiuGE
 <p align="center">
-  <img src="[https://drive.google.com/file/d/1e1XnPS_4otLqfE2aVphISJe4D9Hrxr_N/view?usp=sharing](https://www.dropbox.com/s/0plifphcmdf1cvb/logo_simdal.png?dl=0)">
+  <img src="https://www.dropbox.com/s/0plifphcmdf1cvb/logo_simdal.png?dl=0">
 </p>
 
 This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_blank"> SimGrid</a>. SimGrid framework should be installd on the machine.
