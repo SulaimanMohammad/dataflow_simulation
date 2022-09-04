@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../parsing_DALiuge_Json/lib/libparse_Json.a CMakeFiles/parse_Json.dir/src/parse_Json.cpp.o
-/usr/bin/ranlib ../../parsing_DALiuge_Json/lib/libparse_Json.a
