@@ -1,7 +1,7 @@
 ## Simulation of DALiuGE
-<p align="center">
-  <img src="https://www.dropbox.com/h?preview=logo_simdal.png">
-</p>
+
+![My Remote Image](https://www.dropbox.com/s/0plifphcmdf1cvb/logo_simdal.png?dl=0)
+
 
 This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_blank"> SimGrid</a>. SimGrid framework should be installd on the machine.
 A graph is desiged using <a href="https://https://eagle.icrar.org//" target="_blank"> EAGLE </a>, then the graph is downloaded. Using <a href="https://daliuge.readthedocs.io/en/latest/cli.html//" target="_blank"> DALiuGE API </a> the graph is translated to Physical graph template and Physical graph.
