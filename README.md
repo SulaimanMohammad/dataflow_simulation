@@ -1,5 +1,5 @@
 
-% Simulation of DALiuGE
+# Simulation of DALiuGE
 
 <img src="https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/main/.github/logo_simdal.png" width="200">
 
@@ -8,7 +8,7 @@ A graph is desiged using <a href="https://https://eagle.icrar.org//" target="_bl
 Those graphs are arguments of the Simulation
 
 
-# How to use this file
+## How to use this file
 ```bash
 mkdir build && cd build && cmake .. && make
 ```
@@ -18,7 +18,7 @@ After all the executables are built, Tests can be performed as
 cmake .. -DTests=True
 ```
 
-## simulation after parsing json graph
+# simulation after parsing json graph
 Data and App Drops are stored in vector of objects
 values of the each object( task) is parsed from json file
 
