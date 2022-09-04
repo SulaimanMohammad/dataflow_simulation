@@ -1,7 +1,7 @@
 ## Simulation of DALiuGE
 
 
-![Logo](https://raw.githubusercontent.com/dataflow_simulation/blob/main/.github/logo_simdal.png| width=100)
+![logo](https://raw.githubusercontent.com/dataflow_simulation/blob/main/.github/logo_simdal.png)
 
 
 
