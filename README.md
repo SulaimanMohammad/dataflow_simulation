@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/main/.github/logo_simdal.png" width="100">
+<img src="https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/main/.github/logo_simdal.png" width="200">
 
 ## Simulation of DALiuGE
 This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_blank"> SimGrid</a>. SimGrid framework should be installd on the machine.
