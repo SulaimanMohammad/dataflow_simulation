@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/dataflow_simulation/blob/main/.github/logo_simdal.png)
+![logo](https://raw.githubusercontent.com/dataflow_simulation/main/.github/logo_simdal.png)
 
 ## Simulation of DALiuGE
 This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_blank"> SimGrid</a>. SimGrid framework should be installd on the machine.
