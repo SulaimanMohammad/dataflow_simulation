@@ -1,6 +1,10 @@
 ## Simulation of DALiuGE
 
+<<<<<<< HEAD
 ![Logo](https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/master/.github/logo_simdal.png| width=100)
+=======
+![My Remote Image](https://www.dropbox.com/s/0plifphcmdf1cvb/logo_simdal.png?dl=0)
+>>>>>>> a823947d49117d887090158e8361151c94556b36
 
 
 This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_blank"> SimGrid</a>. SimGrid framework should be installd on the machine.
