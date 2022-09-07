@@ -1,0 +1,22 @@
+#!/usr/bin/env tesh
+
+$ ${bindir:=.}/simul_using_deploy ${platf}/small_platform.xml ${platf}/deploy.xml "--log=root.fmt:[%7.6r]%e[%5a]%e%m%n"
+> [0.000000] [data_drop] Data__drop recive mail is: mem1
+> [0.000000] [app_drop] APP__drop recive mail is: m1_copy
+> [0.000000] [data_drop] Data__drop recive mail is: Copy_app
+> [0.000000] [app_drop] APP__drop recive mail is: mem3-Averege
+> [0.000000] [data_drop] Data__drop recive mail is: mem2
+> [5.000000] [app_drop] APP__drop Send mail is: mem1
+> [5.000195] [app_drop] APP__drop Send mail is: mem2
+> [5.000215] [data_drop] Data__drop Send mail is: m1_copy
+> [5.000390] [app_drop] Exiting now app_drop .
+> [5.000410] [data_drop] Exiting now data_drop.
+> [5.000410] [data_drop] Data__drop Send mail is: mem2-Averege
+> [10.000410] [app_drop] APP__drop Send mail is: Copy_app
+> [10.000606] [app_drop] Exiting now app_drop .
+> [10.000626] [data_drop] Data__drop Send mail is: mem3-Averege
+> [10.000821] [data_drop] Exiting now data_drop.
+> [10.000821] [app_drop] APP__drop recive mail is: mem2-Averege
+> [10.001016] [data_drop] Exiting now data_drop.
+> [15.001016] [app_drop] Exiting now app_drop .
+> [15.001016] [maestro] Simulation is over
