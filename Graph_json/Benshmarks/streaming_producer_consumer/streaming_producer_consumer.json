@@ -36,7 +36,7 @@
     "modelData": {
         "eagleCommitHash": "33c76f928cb1ba8317f079f74a48af13e50df702",
         "eagleVersion": "v4.5.5",
-        "filePath": "streaming_producer_consumer.json",
+        "filePath": "streaming_producer_consumer.graph",
         "fileType": "Graph",
         "gitUrl": "",
         "lastModifiedDatetime": 0,
@@ -251,7 +251,7 @@
             "sha": "459e15d",
             "streaming": false,
             "subject": null,
-            "text": "Source",
+            "text": "RandomArrayApp",
             "width": 200,
             "x": 638.7971287983111,
             "y": 308.7566308603933
@@ -471,7 +471,7 @@
             "sha": "459e15d",
             "streaming": false,
             "subject": null,
-            "text": "Process_A",
+            "text": "CopyApp",
             "width": 200,
             "x": 871.388535292701,
             "y": 308.6458789286523
@@ -695,7 +695,7 @@
             "sha": "459e15d",
             "streaming": false,
             "subject": null,
-            "text": "Process_B",
+            "text": "AverageArrays",
             "width": 200,
             "x": 1076.4728996138103,
             "y": 308.3363084886223

@@ -4,8 +4,8 @@
   <zone id="zone0" routing="Full">
     <host id="Tremblay" speed="5Mf"/>
     <host id="Jupiter" speed="5Mf"/>
-    <host id="Fafard" speed="5Mf"/>
-    <host id="Ginette" speed="5Mf"/>
+    <host id="Fafard" speed="76.296Mf"/>
+    <host id="Ginette" speed="48.492Mf"/>
     <host id="Bourassa" speed="48.492Mf"/>
     <host id="Jacquelin" speed="137.333Mf"/>
     <host id="Boivin" speed="98.095Mf"/>
