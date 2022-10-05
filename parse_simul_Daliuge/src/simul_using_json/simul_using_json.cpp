@@ -228,17 +228,21 @@ template <class T> void tokens_streaming_app(T& task, std::vector<std::string> m
   std::vector<const char**> data_message_received;
   std::vector<std::string> mailboxes_data     = derive_data_mailboxes(mailboxes);
   std::vector<std::string> mailboxes_backward = derive_backward_mailboxes(mailboxes);
+  tokens_recived                              = 0;
 
   while (1) { // reciving all chunks
-    data_message_received = recive_messages(task, mailboxes_data);
-    task.data_size        = extract_data_recived(task, data_message_received);
-
-    tokens_recived++;
-    //  it will send all the data size it has then it can quinized if necessarey
     if (tokens_recived < task.nb_consumed_tokens) {
+      data_message_received = recive_messages(task, mailboxes_data);
+      task.data_size        = extract_data_recived(task, data_message_received);
+      tokens_recived += task.data_size;
+      // the tokens_recived is incereaside by the number of tokens recived,
+      // for now the data drop send tokens one by one, but that can be changed
+
+      //  it will send all the data size it has then it can quinized if necessarey
       task.set_status("TOKENS_ACK");
       sending_ctrl_messages_backward(task, mailboxes_backward);
-    } else {
+
+    } else if (tokens_recived == task.nb_consumed_tokens) {
       task.set_status("TOKENS_DONE");
       sending_ctrl_messages_backward(task, mailboxes_backward);
       break;
@@ -246,38 +250,50 @@ template <class T> void tokens_streaming_app(T& task, std::vector<std::string> m
   }
 }
 
+template <class T> void sending_messages_of_size(T task, std::vector<std::string> sending_to)
+{
+  simgrid::s4u::CommPtr comm;
+  // data drop when it send data to the consumer it should wait until it is read from it
+  //  and that can represents consumer read from the memory of datadrop
+  //  const char* task_stat_waited;
+  for (int i = 0; i < sending_to.size(); i++) {
+    simgrid::s4u::Mailbox* se_mailbox = simgrid::s4u::Mailbox::by_name(sending_to[i]);
+    comm = se_mailbox->put_init(new std::string("data-" + std::to_string(task.data_size)), 0)->detach();
+  }
+}
+
 template <class T> void tokens_streaming_data(T task, int& buffer_size, int nb_tokens)
 {
   bool stream_state;
   // in case of non-streaming all data will be sent as one token
-
   int streaming_tokens_counter = 0;
+  token_size                   = 1;
+  // int streaming_tokens_counter = 0;
   task.set_status("DATA_TOKENS");
   sending_ctrl_messages(task, task.out_ctrl_mailboxes);
-
   do {
+    do {
+      send_data(task, task.out_data_mailboxes, token_size); // send one token each time
+      if (streaming_tokens_counter > nb_tokens) // like the data is sent from  the buffer,  if  the token of the
+        //                                           // produced tokens finished you can send from bufer
+        buffer_size--;
 
-    send_data(task, task.out_data_mailboxes, token_size); // send one token each time
-
-    if (streaming_tokens_counter > nb_tokens) // like the data is sent from  the buffer,  if  the token of the
-                                              // produced tokens finished you can send from bufer
-      buffer_size--;
-
-    // sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
-    if (!task.out_ctrl_mailboxes.empty())
-      streaming_tokens_counter++;
-
-    stream_state = stream_condition(task, "TOKENS_ACK"); // means need more token not doen yet
-
-    if (!stream_state) // recived token_done instade of TOKENS_ACK and mean that conusmer had all to execute so
-                       // another round can starts
-    {
+      // sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
       if (!task.out_ctrl_mailboxes.empty())
-        buffer_size += nb_tokens - streaming_tokens_counter;
-      task.set_status("FINISHED");
-      sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
-    }
-  } while (buffer_size >= 0 && stream_state);
+        streaming_tokens_counter++;
+      stream_state = stream_condition(task, "TOKENS_ACK"); // means need more token not doen yet
+
+      if (!stream_state) // recived token_done instade of TOKENS_ACK and mean that conusmer had all to execute so
+                         // another round can starts
+      {
+        if (!task.out_ctrl_mailboxes.empty())
+          buffer_size += nb_tokens - streaming_tokens_counter;
+      }
+
+    } while (buffer_size >= 0 && stream_state);
+  } while (streaming_tokens_counter < nb_tokens);
+  task.set_status("FINISHED");
+  sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
 }
 
 template <class T>
@@ -391,7 +407,7 @@ static void app_drop(APP_Drop task)
   int tokens_recived          = 0;
   bool complet_msg_is_recived = false;
   bool complet_msg_stream     = false;
-
+  int total_tokens            = 0;
   task.set_status("INITIALIZED");
   ctrl_message_received = recive_messages(task, task.in_ctrl_mailboxes);
   finished_mailboxes    = messges_desired_rec(ctrl_message_received, App_msg_waited_from_Data);
@@ -413,15 +429,40 @@ static void app_drop(APP_Drop task)
       execute_send_ctrl_data(task);
       sending_ctrl_messages_backward(task, derive_backward_mailboxes(finished_mailboxes));
     }
+
+    if (complet_msg_stream && complet_msg_is_recived /*if the app has both stream input and normal*/
+        ||
+        (complet_msg_stream && finished_mailboxes.size() == 0) /*only strame and no normal and strame is all recived */
+        ||
+        (complet_msg_is_recived && stream_mailboxes.size() == 0)) { /*only normal, no stream and normal is all done */
+      execute_send_ctrl_data(task);
+      sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
+    }
   }
 
   if (task.in_ctrl_mailboxes.size() >= stream_mailboxes.size() && !stream_mailboxes.empty()) {
-    tokens_streaming_app(task, stream_mailboxes, tokens_recived);
-    complet_msg_stream = true;
-  }
 
-  if (complet_msg_stream && complet_msg_is_recived) {
-    execute_send_ctrl_data(task);
+    std::vector<const char**> recive_size_f_data = recive_messages(task, task.in_ctrl_mailboxes);
+    long size_data_streaming                     = extract_data_recived(task, recive_size_f_data);
+
+    // XBT_INFO("AAdd, stream ready to execute");
+    while (total_tokens < size_data_streaming) {
+      task.set_status("RUNNING");
+      tokens_streaming_app(task, stream_mailboxes, tokens_recived);
+      total_tokens += tokens_recived;
+      complet_msg_stream = true;
+      task.data_size     = tokens_recived;
+
+      if (complet_msg_stream && complet_msg_is_recived /*if the app has both stream input and normal*/
+          || (complet_msg_stream &&
+              finished_mailboxes.size() == 0) /*only strame and no normal and strame is all recived */
+          ||
+          (complet_msg_is_recived && stream_mailboxes.size() == 0)) { /*only normal, no stream and normal is all done */
+        execute_send_ctrl_data(task);
+      }
+      complet_msg_stream = false;
+    }
+    task.set_status("COMPLETED");
     sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
   }
 
@@ -458,8 +499,26 @@ static void app_drop(APP_Drop task)
     }
     // STREAMIN PRODUCER CONUMER
     if (task.in_ctrl_mailboxes.size() >= stream_mailboxes.size() && !stream_mailboxes.empty()) {
-      tokens_streaming_app(task, stream_mailboxes, tokens_recived);
-      complet_msg_stream = true;
+
+      std::vector<const char**> recive_size_f_data = recive_messages(task, task.in_ctrl_mailboxes);
+      long size_data_streaming                     = extract_data_recived(task, recive_size_f_data);
+
+      // XBT_INFO("AAdd, stream ready to execute");
+      while (total_tokens < size_data_streaming) {
+        tokens_streaming_app(task, stream_mailboxes, tokens_recived);
+        total_tokens += tokens_recived;
+        complet_msg_stream = true;
+        task.data_size     = tokens_recived;
+        if (complet_msg_stream && complet_msg_is_recived /*if the app has both stream input and normal*/
+            || (complet_msg_stream &&
+                finished_mailboxes.size() == 0) /*only strame and no normal and strame is all recived */
+            || (complet_msg_is_recived &&
+                stream_mailboxes.size() == 0)) { /*only normal, no stream and normal is all done */
+          execute_send_ctrl_data(task);
+          sending_ctrl_messages_backward(task, task.send_ctrl_back_mailboxes);
+        }
+        complet_msg_stream = false;
+      }
     }
 
     if (complet_msg_stream && complet_msg_is_recived) {
@@ -496,10 +555,10 @@ template <class T> static void master(T task) // master can be Appdrop or data d
     msg_waited = App_msg_waited_from_Data;
     XBT_INFO("------------- Chunck from master-------------");
     time_t givemetime = time(NULL);
-    //XBT_INFO("before exec %s", ctime(&givemetime)); // ctime() returns given time
+    // XBT_INFO("before exec %s", ctime(&givemetime)); // ctime() returns given time
     simgrid::s4u::this_actor::execute(task.FLOPS);
     givemetime = time(NULL);
-    //XBT_INFO("after exec %s", ctime(&givemetime)); // ctime() returns given time
+    // XBT_INFO("after exec %s", ctime(&givemetime)); // ctime() returns given time
     XBT_INFO(" Master execute %s with id \'%s\' on host \'%s\'", task.name.c_str(), task.id.c_str(),
              simgrid::s4u::Host::current()->get_cname());
     task.set_status("COMPLETED");
@@ -512,7 +571,7 @@ template <class T> static void master(T task) // master can be Appdrop or data d
       chunks++;
       time_t givemetime = time(NULL);
       simgrid::s4u::this_actor::execute(task.FLOPS);
-      givemetime = time(NULL);
+      givemetime        = time(NULL);
       bool stream_state = stream_condition(task, msg_waited);
 
       if (stream_state) {
