@@ -8,9 +8,9 @@ A graph is desiged using <a href="https://https://eagle.icrar.org//" target="_bl
 Those graphs are arguments of the Simulation
 
 **You can find the main Source code in parse_simul_Daliuge/src/simul_using_json/simul_using_json.cpp
-[here](https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/main/parse_simul_Daliuge/src/simul_using_json/simul_using_json.cpp) **
+[here](https://raw.githubusercontent.com/SulaimanMohammad/dataflow_simulation/main/parse_simul_Daliuge/src/simul_using_json/simul_using_json.cpp)**
 
-** The parser and the classes can be found in this path [here](https://github.com/SulaimanMohammad/dataflow_simulation/tree/main/parse_simul_Daliuge/parsing_DALiuge_Json) **
+**The parser and the classes can be found in this path [here](https://github.com/SulaimanMohammad/dataflow_simulation/tree/main/parse_simul_Daliuge/parsing_DALiuge_Json)**
 ## How to use this file
 ```bash
 mkdir build && cd build && cmake .. && make
