@@ -7,6 +7,7 @@ This is a simulation  of DALiuGE using <a href="https://simgrid.org/" target="_b
 A graph is desiged using <a href="https://https://eagle.icrar.org//" target="_blank"> EAGLE </a>, then the graph is downloaded. Using <a href="https://daliuge.readthedocs.io/en/latest/cli.html//" target="_blank"> DALiuGE API </a> the graph is translated to Physical graph template and Physical graph.
 Those graphs are arguments of the Simulation
 
+you can find the mains Source code in parse_simul_Daliuge/src/simul_using_json/simul_using_json.cpp
 
 ## How to use this file
 ```bash
